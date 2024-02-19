@@ -1,0 +1,27 @@
+words = {"актрёр", "тапёр", "щипцы", "почёт", "аллея", "отчёт", "капля", "дымок"}
+wordss = {"двигатель", "желание", "огрызок", "обсоятельство"}
+words = words | wordss
+word = list(words.pop())
+x = ["x"] * len(word)
+lives = 11
+while x != word:
+    a = input("Введите предпологаемую букву: ")
+    if len(a) != 1:
+        print("- ты уверен что это буква?")
+    chance = 0
+    for i in range(len(word)):
+        if word[i] == a:
+            x[i] = a
+            chance = 1
+    for j in range(len(x)):
+        print(x[j], end="")
+    print("")
+    if chance == 0:
+        lives -= 1
+        print("У вас осталось:", lives)
+    if lives == 0:
+        print("Вы проиграли!")
+        print("(")
+        break
+    if x == word:
+        print("Вы выйграли! Ураааааааа!")
