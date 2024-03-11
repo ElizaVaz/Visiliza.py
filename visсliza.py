@@ -22,6 +22,17 @@ def help():  # Инструкция что делать и как.
     print("Надеюсь вы всё поняли!")
 
 
+def help2():  # Инструкция что делать и как.
+    print("Your goal is to guess the word.")
+    print("To do this, you need to enter the number 4 and enter the expected letter.")
+    print("If you forget what you entered, you can press 2 or 3.")
+    print("If you can guess what the word is, you can enter 5 and")
+    print("                try to guess the word (without losing a life).")
+    print("(in other cases, you lose a life (even if you entered a non-letter)).")
+    print("And so you need to enter these letters over and over again until you die")
+    print("        or you will win.")
+    print("I hope you understood everything!")
+
 def win():  # Если человек выиграл, то выведеться такое поздравлние (график).
     print("Вы выйграли! Ураааааааа!")
     print("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠛⢉⣉⣁⣀⣀⣈⣉⡉⠛⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿")
@@ -51,12 +62,13 @@ def end():  # Выведеться когда человек проиграет.
 
 da = "да"
 if da == "да":  # Сделано для того чтобы подокончание первой игры человек мог сыграть ещё раз не перезапуская.
-    print("Вам дано 20 жизней. Если вы ввели не букву, то у вас всё равно отниметься жизнь (да, жестоко),")
+    print("Вам дано 25 жизней. Если вы ввели не букву, то у вас всё равно отниметься жизнь (да, жестоко),")
     print("НО зато вы можете предпологать что это за слово сколько угодно!")
     print("В слове:", len(word), "букв.")
+    print("Если хотите увидеть описание на ангийском введите '/1'.")
     print("Чтобы выбрать один из вариантов введите соответсвующую ему цыфру.")
     x = ["_"] * len(word)
-    lives = 20
+    lives = 25
     print("1. Правила игры (help()).")
     print("2. Вывести все гласные, которые вы ещё не вводили.")
     print("3. Вывести все согласные, которые вы ещё не вводили.")
@@ -101,7 +113,7 @@ if da == "да":  # Сделано для того чтобы подоконча
                 break
             if x == word:  # А может слово уже угадано?
                 win()
-                print(f"Вы затратили {20 - lives} lives.")
+                print(f"Вы затратили {25 - lives} lives.")
         elif otvet == "2":
             print(f"Вы ещё не называли гласные: {str(glasn)[1:-1]}.")
         elif otvet == "3":
@@ -111,12 +123,14 @@ if da == "да":  # Сделано для того чтобы подоконча
             if a == word:  # Если человек угадал сразу всё слово, то...
                 print("Правильно!!!")
                 win()
-                print(f"Вы затратили {20 - lives} lives.")
+                print(f"Вы затратили {25 - lives} lives.")
                 break
             else:
                 print("Нет ._.")
         elif otvet == "1":
             help()
+        elif otvet == "/1":
+            help2()
         elif otvet == "6":
             print(f"Это было слово '{word}'...")  # Если человек сдался.
             break
@@ -131,7 +145,7 @@ if da == "да":  # Сделано для того чтобы подоконча
         print("6. Выход (вы проиграете и узнаете слово).")
         otvet = input().strip()
 
-    print("Хотите сыграть в ещё раз?")  # Выбор сыграть ещё раз.
+    print("Хотите сыграть в ещё раз?") # Выбор сыграть ещё раз.
     print("Если да, то введите 'да'")
     da = (input("Ваш ответ: ").strip()).lower()
 else:
