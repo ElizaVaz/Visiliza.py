@@ -61,7 +61,7 @@ print("6. Выход (вы проиграете и узнаете слово).")
 otvet = input().strip()
 while x != word:    # цикл в котором вы либо угодаете слово либо потратите все жизни
     if otvet == "4":
-        a = input("Введите предпологаемую букву: ").strip()
+        a = (input("Введите предпологаемую букву: ").strip()).lower()
         if len(a) != 1:
             print("- ты уверен что это одна буква?")
         chance = 0
@@ -69,7 +69,7 @@ while x != word:    # цикл в котором вы либо угодаете 
         while a in bil:
             print(f"Это буква уже была. Даю тебе {stuped_n} шанс.")
             stuped_n += 1
-            a = input("Введите предпологаемую букву: ").strip()
+            a = (input("Введите предпологаемую букву: ").strip()).lower()
         if a in glasn:
             bil.append(a)
             glasn.remove(a)
